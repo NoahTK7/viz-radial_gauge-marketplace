@@ -416,6 +416,18 @@ looker.plugins.visualizations.add({
       default: DEFAULT_MAX_RANGE,
       display_size: "half",
     },
+    range_min_measure_override: {
+      type: "string",
+      label: "Range Min Override (Measure/Table Calc)",
+      section: "Plot",
+      order: 35,
+    },
+    range_max_measure_override: {
+      type: "string",
+      label: "Range Max Override (Measure/Table Calc)",
+      section: "Plot",
+      order: 36,
+    },
     value_label_type: {
       type: "string",
       label: "Value Label Type",
@@ -790,6 +802,15 @@ looker.plugins.visualizations.add({
       let default_max = Math.ceil(num / fac) * fac;
       config.range_max = default_max
     }
+    
+    if (config.range_max_measure_override && data.length > 0 && data[0][config.range_max_measure_override] && data[0][config.range_min_measure_override]["value"]) {
+      config.range_max = data[0][config.range_max_measure_override]["value"]
+    }
+    
+    if (config.range_min_measure_override && data.length > 0 && data[0][config.range_min_measure_override] && data[0][config.range_min_measure_override]["value"]) {
+      config.range_min = data[0][config.range_min_measure_override]["value"]
+    }
+
     var viz = this;
     if (config.viz_trellis_by === "none") {
       viz.radialProps = {
