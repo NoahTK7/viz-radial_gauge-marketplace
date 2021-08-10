@@ -702,7 +702,7 @@ const drawRadial = (props) => {
       .text(`${props.value_rendered}`)
       .style("font-size", `${props.value_label_font}${limiting_aspect}`)
       .style("font-family", "Arial, Helvetica, sans-serif")
-      .style("color", "#282828");
+      .style("fill", props.value_text_color);
     valueText.attr(
       "transform",
       `translate(${0 - valueText.node().getBBox().width / 2} ${
@@ -733,7 +733,7 @@ const drawRadial = (props) => {
       .text(`${props.value_rendered}`)
       .style("font-size", `${props.value_label_font}${limiting_aspect}`)
       .style("font-family", "Arial, Helvetica, sans-serif")
-      .style("color", "#282828");
+      .style("fill", props.value_text_color);
     valueText.attr(
       "transform",
       `translate(${0 - valueText.node().getBBox().width / 2} ${
@@ -779,7 +779,7 @@ const drawRadial = (props) => {
       .text(`${props.value_rendered}`)
       .style("font-size", `${props.value_label_font}${limiting_aspect}`)
       .style("font-family", "Arial, Helvetica, sans-serif")
-      .style("color", "#282828");
+      .style("fill", props.value_text_color);
     valueText.attr(
       "transform",
       `translate(${0 - valueText.node().getBBox().width / 2} ${
